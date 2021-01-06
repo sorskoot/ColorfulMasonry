@@ -2,7 +2,6 @@ package net.sorskoot.colorfulmasonry;
 
 import net.fabricmc.api.ModInitializer;
 import net.sorskoot.colorfulmasonry.registry.ModBlocks;
-import net.sorskoot.colorfulmasonry.registry.ModItems;
 
 public class ColorfulMasonry implements ModInitializer {
     
@@ -10,7 +9,6 @@ public class ColorfulMasonry implements ModInitializer {
 
     @Override
 	public void onInitialize() {
-        ModItems.registerItems();		
         ModBlocks.registerBlocks();
 	}
 }
