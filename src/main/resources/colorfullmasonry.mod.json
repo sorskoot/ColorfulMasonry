@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "colofullmasonry",
+  "version": "${version}",
+
+  "name": "Colorfull Masonry",
+  "description": "Craft bricks in all Minecraft colors",
+  "authors": [
+    "Sorskoot"
+  ],
+  "contact": {
+    "homepage": "https://twitch.tv/sorskoot/",
+    "sources": "https://github.com/sorskoot/colorfullmasonry"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/colofullmasonry/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.sorskoot.colofullmasonry.ColorfullMasonry"
+    ]
+  },
+
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
