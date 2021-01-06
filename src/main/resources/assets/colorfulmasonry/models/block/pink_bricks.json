@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "colorfulmasonry:blocks/pink_bricks",
+    "up": "colorfulmasonry:blocks/pink_bricks",
+    "north": "colorfulmasonry:blocks/pink_bricks",
+    "east": "colorfulmasonry:blocks/pink_bricks",
+    "south": "colorfulmasonry:blocks/pink_bricks",
+    "west": "colorfulmasonry:blocks/pink_bricks",
+    "particle": "colorfulmasonry:blocks/pink_bricks"
+  }
+}
