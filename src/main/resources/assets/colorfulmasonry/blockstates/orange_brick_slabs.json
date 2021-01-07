@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "colorfulmasonry:block/orange_brick_slabs"
+    },
+    "type=top": {
+      "model": "colorfulmasonry:block/orange_brick_slabs_top"
+    },
+    "type=double": {
+      "model": "colorfulmasonry:block/orange_brick_slabs_full"
+    }
+  }
+}

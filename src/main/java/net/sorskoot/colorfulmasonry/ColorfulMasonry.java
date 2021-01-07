@@ -48,20 +48,45 @@ public class ColorfulMasonry implements ModInitializer {
             
         } else if ("block".equals(type)) {
         //However, if the item is a block-item, it will have a different model json than the previous two.
-            return 
-            "{"+
-            "  \"parent\": \"block/cube\","+
-            "  \"textures\": {"+
-            "    \"down\": \"colorfulmasonry:blocks/"+id+"\","+
-            "    \"north\": \"colorfulmasonry:blocks/"+id+"\","+
-            "    \"east\": \"colorfulmasonry:blocks/"+id+"\","+
-            "    \"south\": \"colorfulmasonry:blocks/"+id+"\","+
-            "    \"west\": \"colorfulmasonry:blocks/"+id+"\","+
-            "    \"up\": \"colorfulmasonry:blocks/"+id+"\","+
-            "    \"particle\": \"colorfulmasonry:blocks/"+id+"\""+
-            "  }"+
-            "}";
-           
+            String materialName = 
+                            id.replaceAll("_slabs_full", "s")
+                                .replaceAll("_slabs_top", "s")
+                                .replaceAll("_slabs", "s")
+                                .replaceAll("_stairs", "s")                              
+                                .replaceAll("_walls", "s");
+            if(id.contains("_slabs")){
+                String slabType = "slab";
+                if(id.contains("_full")){
+                    slabType = "cube_bottom_top";
+                }
+                if(id.contains("_top")){
+                    slabType += "_top";
+                }
+                return
+                "{"+
+                "    \"parent\": \"block/"+slabType+"\","+
+                "    \"textures\": {"+
+                "      \"bottom\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "      \"top\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "      \"side\": \"colorfulmasonry:blocks/"+materialName+"\""+
+                "    }"+
+                "}";
+            }else{
+            
+            return             
+                "{"+
+                "  \"parent\": \"block/cube\","+
+                "  \"textures\": {"+
+                "    \"down\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "    \"north\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "    \"east\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "    \"south\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "    \"west\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "    \"up\": \"colorfulmasonry:blocks/"+materialName+"\","+
+                "    \"particle\": \"colorfulmasonry:blocks/"+materialName+"\""+
+                "  }"+
+                "}";
+                }
         }
         else {
         //If the type is invalid, return an empty json string.

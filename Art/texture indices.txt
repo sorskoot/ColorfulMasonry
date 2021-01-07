@@ -8,9 +8,9 @@
 *orange 7
 *magenta 1
 *light_blue 3
-lime 10
-light_gray 11
-purple 12
-brown 13
-reds 14
-black 15
+*lime 10
+*light_gray 11
+*purple 12
+*brown 13
+*red 14
+*black 15

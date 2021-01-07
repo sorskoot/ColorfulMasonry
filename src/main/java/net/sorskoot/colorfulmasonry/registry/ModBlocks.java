@@ -34,7 +34,8 @@ public class ModBlocks {
         
         for (DyeColor dyeColor : DyeColor.values()) {            
             registerBuildingBlock(new Block(FabricBlockSettings.copy(Blocks.BRICKS)), dyeColor+"_bricks");
-        // //     //ItemStack stack = ModItems.BLANK_LINKING_BOOK.getDefaultStack();
+            registerBuildingBlock(new SlabBlock(FabricBlockSettings.copy(Blocks.BRICK_SLAB)), dyeColor+"_brick_slabs");
+            // //     //ItemStack stack = ModItems.BLANK_LINKING_BOOK.getDefaultStack();
         // //     IColorData color = ItemColorData.get(stack);
         // //     color.setColor(ColorUtils.dyeColorAsInt(dyeColor));
         // //     items.add(stack);
@@ -43,6 +44,9 @@ public class ModBlocks {
 
     private static void registerBuildingBlock(Block block, String name) {
 		Registry.register(Registry.BLOCK, new Identifier(ColorfulMasonry.MOD_ID, name), block);
-		Registry.register(Registry.ITEM, new Identifier(ColorfulMasonry.MOD_ID, name), new BlockItem(block, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ColorfulMasonry.MOD_ID, name), new BlockItem(block, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+        
+
+        
 	}
 }
