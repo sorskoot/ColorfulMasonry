@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "net.sorskoot.colorfulmasonry.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        
+    ],
+    "client": [    
+      "ModelLoaderMixin"  
+    ],
+    "injectors": {
+      "defaultRequire": 1
+    }
+  }

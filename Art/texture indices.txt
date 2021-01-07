@@ -1,0 +1,16 @@
+*gray 0
+*pink 8
+*green 2 
+*cyan 9
+*blue 4
+*yellow 5
+*white 6
+*orange 7
+*magenta 1
+*light_blue 3
+lime 10
+light_gray 11
+purple 12
+brown 13
+reds 14
+black 15

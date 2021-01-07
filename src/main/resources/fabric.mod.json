@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "colorfulmasonry",
-  "version": "${version}",
+  "version": "0.0.1",
 
   "name": "Colorful Masonry",
   "description": "Craft bricks in all Minecraft colors",
@@ -12,7 +12,9 @@
     "homepage": "https://twitch.tv/sorskoot/",
     "sources": "https://github.com/sorskoot/colorfulmasonry"
   },
-
+  "mixins": [
+    "colorfulmasonry.mixins.json"
+  ],
   "license": "CC0-1.0",
   "icon": "assets/colorfulmasonry/icon.png",
 
