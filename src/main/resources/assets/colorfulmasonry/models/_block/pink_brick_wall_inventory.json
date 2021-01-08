@@ -1,0 +1,7 @@
+{
+  "parent": "block/wall_inventory",
+  "textures": {
+    "wall": "colormasonry:blocks/textures_1",
+    "particle": "colormasonry:blocks/textures_1"
+  }
+}

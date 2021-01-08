@@ -14,6 +14,7 @@ import net.sorskoot.colorfulmasonry.ColorfulMasonry;
 import net.sorskoot.colorfulmasonry.DyedBrickBlock;
 import net.sorskoot.colorfulmasonry.DyedBrickSlabBlock;
 import net.sorskoot.colorfulmasonry.DyedBrickStairsBlock;
+import net.sorskoot.colorfulmasonry.DyedBrickWallBlock;
 
 public class ModBlocks {    
     public static void registerBlocks() {        
@@ -21,6 +22,7 @@ public class ModBlocks {
             registerBuildingBlock(new DyedBrickBlock(), dyeColor+"_bricks");
             registerBuildingBlock(new DyedBrickSlabBlock(), dyeColor+"_brick_slabs");
             registerBuildingBlock(new DyedBrickStairsBlock(Blocks.BRICK_STAIRS.getDefaultState(), FabricBlockSettings.copy(Blocks.BRICK_STAIRS)), dyeColor+"_brick_stairs");
+            registerBuildingBlock(new DyedBrickWallBlock(), dyeColor+"_brick_wall");
         }
     }
 

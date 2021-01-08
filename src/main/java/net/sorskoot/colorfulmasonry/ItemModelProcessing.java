@@ -2,7 +2,8 @@ package net.sorskoot.colorfulmasonry;
 
 public class ItemModelProcessing {
     public static String createItemModelJson(String id, String type) {
-//        System.out.println("ColorfulMasonry: Generating "+type+"--"+id);
+
+        System.out.println("ColorfulMasonry: createItemModelJson "+type+"--"+id);
         if ("item".equals(type) || "handheld".equals(type)) {            
         //The two types of items. "handheld" is used mostly for tools and the like, while "generated" is used for everything else. 
             return processBlockItem(id);            
@@ -13,6 +14,8 @@ public class ItemModelProcessing {
                 return processSlabs(id, materialName);
             }else if(id.contains("_stairs")){
                 return processStairs(id, materialName);
+            }else if(id.contains("_wall")){
+                return processWall(id, materialName);
             }else{            
                 return processBlock(materialName);
             }
@@ -24,6 +27,7 @@ public class ItemModelProcessing {
     }
 
     private static String processBlockItem(String id) {
+
         return   
         "{"+
         "  \"parent\": \"colorfulmasonry:block/"+id+"\","+
@@ -38,7 +42,7 @@ public class ItemModelProcessing {
     }
 
     private static String extractedMaterialName(String id) {
-        return id.replaceAll("(_slabs_full|_slabs_top|_slabs|_stairs_outer|_stairs_inner|_stairs|_walls)", "s");
+        return id.replaceAll("(_slabs_full|_slabs_top|_slabs|_stairs_outer|_stairs_inner|_stairs|_wall_inventory|_wall_post|_wall_side_tall|_wall_side|_wall)", "s");
     }
 
     private static String processBlock(String materialName) {
@@ -46,13 +50,13 @@ public class ItemModelProcessing {
             "{"+
             "  \"parent\": \"block/cube\","+
             "  \"textures\": {"+
-            "    \"down\": \"colorfulmasonry:blocks/"+materialName+"\","+
-            "    \"north\": \"colorfulmasonry:blocks/"+materialName+"\","+
-            "    \"east\": \"colorfulmasonry:blocks/"+materialName+"\","+
-            "    \"south\": \"colorfulmasonry:blocks/"+materialName+"\","+
-            "    \"west\": \"colorfulmasonry:blocks/"+materialName+"\","+
-            "    \"up\": \"colorfulmasonry:blocks/"+materialName+"\","+
-            "    \"particle\": \"colorfulmasonry:blocks/"+materialName+"\""+
+            "    \"down\": \"colorfulmasonry:block/"+materialName+"\","+
+            "    \"north\": \"colorfulmasonry:block/"+materialName+"\","+
+            "    \"east\": \"colorfulmasonry:block/"+materialName+"\","+
+            "    \"south\": \"colorfulmasonry:block/"+materialName+"\","+
+            "    \"west\": \"colorfulmasonry:block/"+materialName+"\","+
+            "    \"up\": \"colorfulmasonry:block/"+materialName+"\","+
+            "    \"particle\": \"colorfulmasonry:block/"+materialName+"\""+
             "  }"+
             "}";
     }
@@ -69,9 +73,9 @@ public class ItemModelProcessing {
         "{"+
         "    \"parent\": \"block/"+slabType+"\","+
         "    \"textures\": {"+
-        "      \"bottom\": \"colorfulmasonry:blocks/"+materialName+"\","+
-        "      \"top\": \"colorfulmasonry:blocks/"+materialName+"\","+
-        "      \"side\": \"colorfulmasonry:blocks/"+materialName+"\""+
+        "      \"bottom\": \"colorfulmasonry:block/"+materialName+"\","+
+        "      \"top\": \"colorfulmasonry:block/"+materialName+"\","+
+        "      \"side\": \"colorfulmasonry:block/"+materialName+"\""+
         "    }"+
         "}";
     }
@@ -84,15 +88,39 @@ public class ItemModelProcessing {
         if(id.contains("stairs_outer")){
             stairsType = "outer_stairs";
         }
-        System.out.println("ColorfulMasonry: Generating Stairs "+id+"("+stairsType+"--"+materialName+")");
         return
         "{"+
         "    \"parent\": \"block/"+stairsType+"\","+
         "    \"textures\": {"+
-        "      \"bottom\": \"colorfulmasonry:blocks/"+materialName+"\","+
-        "      \"top\": \"colorfulmasonry:blocks/"+materialName+"\","+
-        "      \"side\": \"colorfulmasonry:blocks/"+materialName+"\""+
+        "      \"bottom\": \"colorfulmasonry:block/"+materialName+"\","+
+        "      \"top\": \"colorfulmasonry:block/"+materialName+"\","+
+        "      \"side\": \"colorfulmasonry:block/"+materialName+"\""+
         "    }"+
         "}";
+    }
+
+    private static String processWall(String id, String materialName) {
+        System.out.println("ColorfulMasonry: Generating Walls "+id+"("+materialName+")");
+        String wallType = "wall_inventory";
+        
+        if(id.contains("tall")) wallType = "template_wall_side_tall";
+        else if(id.contains("post")) wallType = "template_wall_post";
+        else if(id.contains("side")) wallType = "template_wall_side";
+        return 
+        "{"+
+        "    \"parent\": \"minecraft:block/"+wallType+"\","+
+        "        \"textures\": {"+
+        "    \"wall\":  \"colorfulmasonry:block/"+materialName+"\""+
+        "    }"+
+        "}";       
+        
+        // else 
+        //   return
+        // "{"+
+        // "    \"parent\": \"block/wall_inventory\","+
+        // "    \"textures\": {"+
+        // "     \"wall\": \"colorfulmasonry:block/"+materialName+"\""+
+        // "    }"+
+        // "}";
     }
 }
