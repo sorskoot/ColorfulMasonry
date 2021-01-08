@@ -9,10 +9,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.json.JsonUnbakedModel;
-import net.minecraft.resource.Resource;
-import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
-import net.sorskoot.colorfulmasonry.ColorfulMasonry;
+import net.sorskoot.colorfulmasonry.ItemModelProcessing;
 
 @Mixin(ModelLoader.class)
 public class ModelLoaderMixin {
@@ -25,7 +23,7 @@ public class ModelLoaderMixin {
         //Here, we can do different checks to see if the current item is a block-item, a tool, or other.
         //This can be done in a lot of different ways, like putting all our items in a Set or a List and checking if the current item is contained inside.
         //For this tutorial, we only have 1 item, so we will not be doing that, and we will be going with "generated" as default item type.
-        String modelJson = ColorfulMasonry.createItemModelJson(id.getPath().split("/")[1], id.getPath().split("/")[0]);
+        String modelJson = ItemModelProcessing.createItemModelJson(id.getPath().split("/")[1], id.getPath().split("/")[0]);
         if ("".equals(modelJson)) return;
         //We check if the json string we get is valid before continuing.
         JsonUnbakedModel model = JsonUnbakedModel.deserialize(modelJson);
