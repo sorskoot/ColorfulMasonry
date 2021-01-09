@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "colorfulmasonry:block/masonry_oven"
+    },
+    "facing=east": {
+      "model": "colorfulmasonry:block/masonry_oven",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "colorfulmasonry:block/masonry_oven",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "colorfulmasonry:block/masonry_oven",
+      "y": 270
+    }
+  }
+}

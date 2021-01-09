@@ -11,13 +11,20 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.sorskoot.colorfulmasonry.ColorfulMasonry;
-import net.sorskoot.colorfulmasonry.DyedBrickBlock;
-import net.sorskoot.colorfulmasonry.DyedBrickSlabBlock;
-import net.sorskoot.colorfulmasonry.DyedBrickStairsBlock;
-import net.sorskoot.colorfulmasonry.DyedBrickWallBlock;
+import net.sorskoot.colorfulmasonry.blocks.DyedBrickBlock;
+import net.sorskoot.colorfulmasonry.blocks.DyedBrickSlabBlock;
+import net.sorskoot.colorfulmasonry.blocks.DyedBrickStairsBlock;
+import net.sorskoot.colorfulmasonry.blocks.DyedBrickWallBlock;
+import net.sorskoot.colorfulmasonry.blocks.MasonryOvenBlock;
 
 public class ModBlocks {    
-    public static void registerBlocks() {        
+    public static void registerBlocks() {  
+        Block oven = new MasonryOvenBlock();
+        Registry.register(Registry.BLOCK, new Identifier(ColorfulMasonry.MOD_ID, "masonry_oven"), oven);
+        Registry.register(Registry.ITEM, new Identifier(ColorfulMasonry.MOD_ID, "masonry_oven"), new BlockItem(oven, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
+
+       //registerBuildingBlock(new Block(FabricBlockSettings.copy(Blocks.FURNACE)), "MasonryOven");
+
         for (DyeColor dyeColor : DyeColor.values()) {            
             registerBuildingBlock(new DyedBrickBlock(), dyeColor+"_bricks");
             registerBuildingBlock(new DyedBrickSlabBlock(), dyeColor+"_brick_slabs");

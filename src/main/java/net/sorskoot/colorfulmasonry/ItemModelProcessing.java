@@ -4,6 +4,8 @@ public class ItemModelProcessing {
     public static String createItemModelJson(String id, String type) {
 
         System.out.println("ColorfulMasonry: createItemModelJson "+type+"--"+id);
+        if(!id.contains("brick")) return "";
+
         if ("item".equals(type) || "handheld".equals(type)) {            
         //The two types of items. "handheld" is used mostly for tools and the like, while "generated" is used for everything else. 
             return processBlockItem(id);            
@@ -20,10 +22,10 @@ public class ItemModelProcessing {
                 return processBlock(materialName);
             }
         }
-        else {
+     
         //If the type is invalid, return an empty json string.
-            return "";
-        }
+        return "";
+       
     }
 
     private static String processBlockItem(String id) {

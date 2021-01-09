@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "colorfulmasonry:block/masonryoven_2",
+    "up": "colorfulmasonry:block/masonryoven_2",
+    "north": "colorfulmasonry:block/masonryoven_0",
+    "east": "colorfulmasonry:block/masonryoven_1",
+    "south": "colorfulmasonry:block/masonryoven_1",
+    "west": "colorfulmasonry:block/masonryoven_1",
+    "particle": "colorfulmasonry:block/masonryoven_2"
+  }
+}

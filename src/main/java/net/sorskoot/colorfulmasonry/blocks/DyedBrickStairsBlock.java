@@ -1,4 +1,4 @@
-package net.sorskoot.colorfulmasonry;
+package net.sorskoot.colorfulmasonry.blocks;
 
 import java.util.Collections;
 import java.util.List;
