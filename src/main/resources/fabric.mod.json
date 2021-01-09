@@ -22,7 +22,10 @@
   "entrypoints": {
     "main": [
       "net.sorskoot.colorfulmasonry.ColorfulMasonry"
-    ]
+    ],
+  "client": [
+      "net.sorskoot.colorfulmasonry.ColorfulMasonryClient"
+  ]
   },
 
 
@@ -33,5 +36,6 @@
   },
   "suggests": {
     "another-mod": "*"
-  }
+  },
+  "accessWidener": "colorfulmasonry.accesswidener"
 }

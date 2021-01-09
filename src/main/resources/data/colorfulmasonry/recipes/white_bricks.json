@@ -1,0 +1,9 @@
+{
+    "type": "colorfulmasonry:masonry_oven",
+    "ingredient": {
+      "item": "minecraft:clay_ball"
+    },
+    "result": "minecraft:acacia_button",
+    "experience": 0.3,
+    "cookingtime": 200
+  }

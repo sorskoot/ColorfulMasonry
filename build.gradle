@@ -10,6 +10,10 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+minecraft {
+	accessWidener "src/main/resources/colorfulmasonry.accesswidener"
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:1.16.4"
     mappings "net.fabricmc:yarn:1.16.4+build.7:v2"

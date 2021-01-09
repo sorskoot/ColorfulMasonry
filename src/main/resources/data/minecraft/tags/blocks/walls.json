@@ -2,6 +2,19 @@
     "values": [
         "colorfulmasonry:pink_brick_wall",
         "colorfulmasonry:purple_brick_wall",
-        "colorfulmasonry:magenta_brick_wall"
+        "colorfulmasonry:magenta_brick_wall",
+        "colorfulmasonry:white_brick_wall",
+        "colorfulmasonry:orange_brick_wall",
+        "colorfulmasonry:light_blue_brick_wall",
+        "colorfulmasonry:yellow_brick_wall",
+        "colorfulmasonry:lime_brick_wall",
+        "colorfulmasonry:gray_brick_wall",
+        "colorfulmasonry:light_gray_brick_wall",
+        "colorfulmasonry:cyan_brick_wall",
+        "colorfulmasonry:blue_brick_wall",
+        "colorfulmasonry:brown_brick_wall",
+        "colorfulmasonry:green_brick_wall",
+        "colorfulmasonry:red_brick_wall",
+        "colorfulmasonry:black_brick_wall"
     ]
   }
