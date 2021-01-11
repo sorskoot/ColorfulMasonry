@@ -14,6 +14,13 @@ minecraft {
 	accessWidener "src/main/resources/colorfulmasonry.accesswidener"
 }
 
+repositories {
+    maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:1.16.4"
     mappings "net.fabricmc:yarn:1.16.4+build.7:v2"
@@ -21,6 +28,9 @@ dependencies {
             
     //Fabric api
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.29.3+1.16"
+ 	
+	modImplementation include("io.github.cottonmc:LibGui:3.3.2+1.16.4")
+	
 }
 
 processResources {

@@ -1,14 +1,15 @@
 {
-  "block.colormasonry.pink_bricks": "Pink Bricks",
-  "block.colormasonry.pink_brick_slabs": "Pink Brick Slabs",
-  "block.colormasonry.pink_brick_stairs": "Pink Brick Stairs",
-  
-  "block.colormasonry.cyan_bricks": "Cyan Bricks",
+  "block.colorfulmasonry.pink_bricks": "Pink Bricks",
+  "block.colorfulmasonry.pink_brick_slabs": "Pink Brick Slabs",
+  "block.colorfulmasonry.pink_brick_stairs": "Pink Brick Stairs",
+  "block.colorfulmasonry.cyan_bricks": "Cyan Bricks",
   "itemGroup.tabcolor_masonry": "Color Masonry",
-  "block.colormasonry.gray_bricks": "Gray Bricks",
-  "block.colormasonry.masonry_oven": "Masonry Oven",
-  "block.colormasonry.blue_bricks": "Blue Bricks",
-  "block.colormasonry.yellow_bricks": "Yellow Bricks",
-  "block.colormasonry.mansonry_oven_lit": "Masonry Oven",
-  "block.colormasonry.green_bricks": "Green Bricks"
+  "block.colorfulmasonry.gray_bricks": "Gray Bricks",
+  "block.colorfulmasonry.masonry_oven": "Masonry Oven",
+  "block.colorfulmasonry.blue_bricks": "Blue Bricks",
+  "block.colorfulmasonry.yellow_bricks": "Yellow Bricks",
+  "block.colorfulmasonry.mansonry_oven_lit": "Masonry Oven",
+  "block.colorfulmasonry.green_bricks": "Green Bricks"
+
+  
 }
