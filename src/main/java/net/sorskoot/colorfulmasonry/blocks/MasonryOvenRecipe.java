@@ -25,14 +25,17 @@ import net.sorskoot.colorfulmasonry.registry.MasonryOvenBlocks;
 public class MasonryOvenRecipe implements Recipe<Inventory> {
 
     private final Ingredient dye;
+    private final Ingredient groundMaterial;
     private final ItemStack result;
     private final Identifier id;
     private final float xp;
     private final int cookingTime;
 
-    public MasonryOvenRecipe(Identifier id, Ingredient dye, ItemStack result, float xp, int cookingTime) {
+    public MasonryOvenRecipe(Identifier id, Ingredient dye, Ingredient groundMaterial, ItemStack result, float xp,
+            int cookingTime) {
         this.id = id;
         this.dye = dye;
+        this.groundMaterial = groundMaterial;
         this.result = result;
         this.xp = xp;
         this.cookingTime = cookingTime;
@@ -40,13 +43,18 @@ public class MasonryOvenRecipe implements Recipe<Inventory> {
 
     @Override
     public boolean matches(Inventory inv, World world) {
-        return this.dye.test(inv.getStack(0));
+        return 
+            this.dye.test(inv.getStack(MasonryOvenBlockEntity.SLOT_DYE)) &&
+            this.groundMaterial.test(inv.getStack(MasonryOvenBlockEntity.SLOT_GM1)) &&
+            this.groundMaterial.test(inv.getStack(MasonryOvenBlockEntity.SLOT_GM2)) &&
+            this.groundMaterial.test(inv.getStack(MasonryOvenBlockEntity.SLOT_GM3)) &&
+            this.groundMaterial.test(inv.getStack(MasonryOvenBlockEntity.SLOT_GM4));
     }
 
     @Override
     public ItemStack craft(Inventory inv) {
         ItemStack itemStack = this.result.copy();
-        CompoundTag compoundTag = inv.getStack(0).getTag();
+        CompoundTag compoundTag = inv.getStack(MasonryOvenBlockEntity.SLOT_DYE).getTag();
         if (compoundTag != null) {
             itemStack.setTag(compoundTag.copy());
         }
@@ -80,12 +88,17 @@ public class MasonryOvenRecipe implements Recipe<Inventory> {
         return MasonryOvenBlocks.MASONRY_OVEN_RECIPE_TYPE;
     }
 
+    public int getCookTime() {
+        return this.cookingTime;
+    }
+
     public static class Serializer implements RecipeSerializer<MasonryOvenRecipe> {
         private final int cookingTime = 200;
 
         @Override
         public MasonryOvenRecipe read(Identifier id, JsonObject json) {
-            Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(json, "ingredient"));
+            Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(json, "dye"));
+            Ingredient groundMaterial = Ingredient.fromJson(JsonHelper.getObject(json, "ground_material"));
             // Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(json,
             // "dye"));
             String string2 = JsonHelper.getString(json, "result");
@@ -96,25 +109,26 @@ public class MasonryOvenRecipe implements Recipe<Inventory> {
             ;
             float f = JsonHelper.getFloat(json, "experience", 0.0F);
             int i = JsonHelper.getInt(json, "cookingtime", this.cookingTime);
-            return new MasonryOvenRecipe(id, ingredient, itemStack, f, i);
+            return new MasonryOvenRecipe(id, ingredient, groundMaterial, itemStack, f, i);
         }
 
         @Override
         public MasonryOvenRecipe read(Identifier id, PacketByteBuf buf) {
             Ingredient ingredient = Ingredient.fromPacket(buf);
+            Ingredient groundMaterial = Ingredient.fromPacket(buf);
             ItemStack itemStack = buf.readItemStack();
             float f = buf.readFloat();
             int i = buf.readVarInt();
-            return new MasonryOvenRecipe(id, ingredient, itemStack, f, i);
+            return new MasonryOvenRecipe(id, ingredient, groundMaterial, itemStack, f, i);
         }
 
         @Override
         public void write(PacketByteBuf buf, MasonryOvenRecipe recipe) {
             recipe.dye.write(buf);
+            recipe.groundMaterial.write(buf);
             buf.writeItemStack(recipe.result);
             buf.writeFloat(recipe.xp);
             buf.writeVarInt(recipe.cookingTime);
-        }
-
+        }        
     }
 }

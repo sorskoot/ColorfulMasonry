@@ -1,5 +1,7 @@
 package net.sorskoot.colorfulmasonry.gui;
 
+import javax.swing.Painter;
+
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
@@ -38,19 +40,19 @@ public class MasonryOvenController extends SyncedGuiDescription {
         root.add(itemSlotDye, 4, 1);
 
         WItemSlot itemSlot2 = WItemSlot.of(blockInventory, 1);
-        itemSlot2.setFilter(i -> i.getItem() == Items.CLAY_BALL);
+        //itemSlot2.setFilter(i -> i.getItem() == Items.CLAY_BALL);
         root.add(itemSlot2, 1, 1);
 
         WItemSlot itemSlot3 = WItemSlot.of(blockInventory, 2);
-        itemSlot3.setFilter(i -> i.getItem() == Items.CLAY_BALL);
+      //  itemSlot3.setFilter(i -> i.getItem() == Items.CLAY_BALL);
         root.add(itemSlot3, 1, 2);
 
         WItemSlot itemSlot4 = WItemSlot.of(blockInventory, 3);
-        itemSlot4.setFilter(i -> i.getItem() == Items.CLAY_BALL);
+        //itemSlot4.setFilter(i -> i.getItem() == Items.CLAY_BALL);
         root.add(itemSlot4, 2, 1);
 
         WItemSlot itemSlot5 = WItemSlot.of(blockInventory, 4);
-        itemSlot5.setFilter(i -> i.getItem() == Items.CLAY_BALL);
+      //  itemSlot5.setFilter(i -> i.getItem() == Items.CLAY_BALL);
         root.add(itemSlot5, 2, 2);
 
         WItemSlot outputItemSlot = WItemSlot.of(blockInventory, 6).setInsertingAllowed(false);
