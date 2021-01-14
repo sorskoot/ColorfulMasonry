@@ -1,0 +1,12 @@
+{
+  "type": "colorfulmasonry:masonry_oven",
+  "dye": {
+    "item": "minecraft:orange_dye"
+  },  
+  "ground_material":{
+    "item": "minecraft:clay_ball"    
+  },
+  "result": "colorfulmasonry:orange_bricks",
+  "experience": 0.3,
+  "cookingtime": 200
+}

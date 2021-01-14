@@ -33,7 +33,7 @@ public class MasonryOvenController extends SyncedGuiDescription {
 
         WItemSlot fuelSlot = WItemSlot.of(blockInventory, 5);
         fuelSlot.setFilter(i -> AbstractFurnaceBlockEntity.canUseAsFuel(i));
-        root.add(fuelSlot, 4, 2);
+        root.add(fuelSlot, 4, 3);
 
         WItemSlot itemSlotDye = WItemSlot.of(blockInventory, 0);
         itemSlotDye.setFilter(i -> i.getItem() instanceof DyeItem);
@@ -58,7 +58,7 @@ public class MasonryOvenController extends SyncedGuiDescription {
         WItemSlot outputItemSlot = WItemSlot.of(blockInventory, 6).setInsertingAllowed(false);
         root.add(outputItemSlot, 8, 1);
 
-        root.add(this.createPlayerInventoryPanel(), 0, 3);
+        root.add(this.createPlayerInventoryPanel(), 0, 4);
 
         root.validate(this);
     }
