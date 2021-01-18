@@ -24,6 +24,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.BlastingRecipe;
 import net.minecraft.screen.BlastFurnaceScreenHandler;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stat;
@@ -112,7 +113,8 @@ public class MasonryOvenBlock extends Block implements BlockEntityProvider {
         // Vec3d.ofCenter(pos));
         // world.updateComparators(pos, this);
         // }
-
+        
+        world.updateComparators(pos, this);
         super.onStateReplaced(state, world, pos, newState, moved);
         // }
     }
@@ -154,4 +156,12 @@ public class MasonryOvenBlock extends Block implements BlockEntityProvider {
             world.addParticle(ParticleTypes.FLAME, d + i, e + j, f + k, 0.0D, 0.0D, 0.0D);
         }
     }
+
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
+     }
+  
+     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
+     }
 }
