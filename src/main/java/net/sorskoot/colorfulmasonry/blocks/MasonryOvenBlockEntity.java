@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import org.jetbrains.annotations.Nullable;
 
+import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -39,7 +40,7 @@ import net.sorskoot.colorfulmasonry.gui.MasonryOvenController;
 import net.sorskoot.colorfulmasonry.registry.MasonryOvenBlocks;
 
 public class MasonryOvenBlockEntity extends BlockEntity
-        implements SidedInventory, NamedScreenHandlerFactory, RecipeUnlocker, RecipeInputProvider, Tickable {
+        implements PropertyDelegateHolder, SidedInventory, NamedScreenHandlerFactory, RecipeUnlocker, RecipeInputProvider, Tickable {
 
     public static final int SLOT_FUEL = 5;
     public static final int SLOT_DYE = 0;
@@ -406,5 +407,10 @@ public class MasonryOvenBlockEntity extends BlockEntity
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
         // TODO Auto-generated method stub
         return false;
+    }
+
+    @Override
+    public PropertyDelegate getPropertyDelegate() {        
+        return propertyDelegate;
     }
 }
