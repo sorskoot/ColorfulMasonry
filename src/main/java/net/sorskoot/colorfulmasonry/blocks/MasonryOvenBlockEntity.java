@@ -10,9 +10,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.Item;
@@ -49,6 +51,10 @@ public class MasonryOvenBlockEntity extends BlockEntity
     public static final int SLOT_GM3 = 3;
     public static final int SLOT_GM4 = 4;
     public static final int SLOT_OUTPUT = 6;
+
+    private static final int[] TOP_SLOTS = new int[]{ SLOT_DYE };
+    private static final int[] BOTTOM_SLOTS = new int[]{SLOT_OUTPUT, SLOT_FUEL};
+    private static final int[] SIDE_SLOTS = new int[]{SLOT_FUEL, SLOT_GM1, SLOT_GM2, SLOT_GM3,SLOT_GM4};
 
     // TODO: Make this value configurable
     private static final int SPEEDACCELERATION = 2;
@@ -321,6 +327,7 @@ public class MasonryOvenBlockEntity extends BlockEntity
     public int size() {
         return this.inventory.size();
     }
+    
 
     @Override
     public boolean isEmpty() {
@@ -352,12 +359,13 @@ public class MasonryOvenBlockEntity extends BlockEntity
     public ItemStack removeStack(int slot) {
         return Inventories.removeStack(this.inventory, slot);
     }
-
+    
     @Override
     public void setStack(int slot, ItemStack stack) {
         ItemStack itemStack = (ItemStack) this.inventory.get(slot);
         boolean bl = !stack.isEmpty() && stack.isItemEqualIgnoreDamage(itemStack)
-                && ItemStack.areTagsEqual(stack, itemStack);
+                && ItemStack.areTagsEqual(stack, itemStack);        
+       
         this.inventory.set(slot, stack);
         if (stack.getCount() > this.getMaxCountPerStack()) {
             stack.setCount(this.getMaxCountPerStack());
@@ -393,20 +401,25 @@ public class MasonryOvenBlockEntity extends BlockEntity
 
     @Override
     public int[] getAvailableSlots(Direction side) {
-        // TODO Auto-generated method stub
-        return null;
+        if(side == Direction.UP) return TOP_SLOTS;  
+        if(side == Direction.DOWN) return BOTTOM_SLOTS;
+        return SIDE_SLOTS;
     }
 
     @Override
-    public boolean canInsert(int slot, ItemStack stack, Direction dir) {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean canInsert(int slot, ItemStack stack, Direction dir) {        
+        return isValid(slot, stack);
     }
 
     @Override
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        // TODO Auto-generated method stub
-        return false;
+        if (dir == Direction.DOWN && slot == SLOT_FUEL) {
+            Item item = stack.getItem();
+            if (item != Items.WATER_BUCKET && item != Items.BUCKET) {
+               return false;
+            }
+         }
+         return true;
     }
 
     @Override
