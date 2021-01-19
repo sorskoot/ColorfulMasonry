@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "colorfulmasonry:red_bricks"
+    }
+  },
+  "result": {
+    "item": "colorfulmasonry:red_brick_slabs",
+    "count": 6
+  }
+}

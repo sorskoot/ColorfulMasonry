@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "colorfulmasonry:light_blue_bricks"
+    }
+  },
+  "result": {
+    "item": "colorfulmasonry:light_blue_brick_stairs",
+    "count": 4
+  }
+}

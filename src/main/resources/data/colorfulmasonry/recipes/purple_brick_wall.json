@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "colorfulmasonry:purple_bricks"
+    }
+  },
+  "result": {
+    "item": "colorfulmasonry:purple_brick_wall",
+    "count": 6
+  }
+}
