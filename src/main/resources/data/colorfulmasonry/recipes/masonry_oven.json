@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "C C",
+        "CCC"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:bricks"
+        },
+        "C": {
+            "item": "minecraft:cobblestone"
+        }
+    },
+    "result": {
+        "item": "colorfulmasonry:masonry_oven",
+        "count": 1
+    }
+}
