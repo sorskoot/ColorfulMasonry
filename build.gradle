@@ -87,8 +87,8 @@ curseforge {
   apiKey = 'b96189cc-a12d-4044-8437-53a86eeead5c'
   project {
     id = '438295'
-    changelog = 'First build using CurseForge'
-    releaseType = 'release'
+    changelog = 'First build using CurseForge. Removed depency on Cotton MC'
+    releaseType = 'beta'
     addGameVersion '1.16.4'
 
     mainArtifact(jar) {

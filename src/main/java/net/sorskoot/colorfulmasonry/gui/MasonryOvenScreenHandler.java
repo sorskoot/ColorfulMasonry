@@ -27,79 +27,83 @@ import net.sorskoot.colorfulmasonry.registry.MasonryOvenBlocks;
 public class MasonryOvenScreenHandler extends ScreenHandler { // SyncedGuiDescription {
 
   private final ScreenHandlerContext context;
-  
+
   private Runnable inventoryChangeListener;
   private final Inventory inventory;
   private final Slot dyeSlot;
   private final Slot[] claySlot = new Slot[4];
   private final Slot fuelSlot;
-  
+
   private final Slot outputSlot;
-  
+
   private final PropertyDelegate propertyDelegate;
 
   public MasonryOvenScreenHandler(int syncId, PlayerInventory playerInventory) {
     this(syncId, playerInventory, new SimpleInventory(7), ScreenHandlerContext.EMPTY, new ArrayPropertyDelegate(4));
   }
 
-  public MasonryOvenScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, final ScreenHandlerContext context, PropertyDelegate propertyDelegate) {
+  public MasonryOvenScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory,
+      final ScreenHandlerContext context, PropertyDelegate propertyDelegate) {
     super(MasonryOvenBlocks.SCREEN_HANDLER_TYPE, syncId);
     this.inventoryChangeListener = () -> {
     };
-    this.propertyDelegate=propertyDelegate;
+    this.propertyDelegate = propertyDelegate;
     this.inventory = inventory;
     // this.input = new SimpleInventory(6) {
-    //   public void markDirty() {
-    //     super.markDirty();
-    //     MasonryOvenScreenHandler.this.onContentChanged(this);
-    //     MasonryOvenScreenHandler.this.inventoryChangeListener.run();
-    //   }
+    // public void markDirty() {
+    // super.markDirty();
+    // MasonryOvenScreenHandler.this.onContentChanged(this);
+    // MasonryOvenScreenHandler.this.inventoryChangeListener.run();
+    // }
     // };
-    
+
     // this.output = new SimpleInventory(1) {
-    //   public void markDirty() {
-    //     super.markDirty();
-    //     MasonryOvenScreenHandler.this.inventoryChangeListener.run();
-    //   }
+    // public void markDirty() {
+    // super.markDirty();
+    // MasonryOvenScreenHandler.this.inventoryChangeListener.run();
+    // }
     // };
     this.dyeSlot = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_DYE, 74, 17) {
       public boolean canInsert(ItemStack stack) {
         return stack.getItem() instanceof DyeItem;
       }
     });
+    this.claySlot[0] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM1, 20, 17));
+    this.claySlot[1] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM2, 38, 17));
+    this.claySlot[2] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM3, 20, 35));
+    this.claySlot[3] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM4, 38, 35));
+
     this.fuelSlot = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_FUEL, 74, 53) {
       public boolean canInsert(ItemStack stack) {
         return AbstractFurnaceBlockEntity.canUseAsFuel(stack);
       }
     });
-    this.claySlot[0] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM1, 20, 17));      
-    this.claySlot[1] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM2, 38, 17));      
-    this.claySlot[2] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM3, 20, 35));      
-    this.claySlot[3] = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_GM4, 38, 35));      
-    
-    this.outputSlot = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_OUTPUT, 134, 35){
+
+    this.outputSlot = this.addSlot(new Slot(this.inventory, MasonryOvenBlockEntity.SLOT_OUTPUT, 134, 35) {
       public boolean canInsert(ItemStack stack) {
         return false;
-     }
+      }
 
-     public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
+      public ItemStack onTakeItem(PlayerEntity player, ItemStack stack) {
         // LoomScreenHandler.this.bannerSlot.takeStack(1);
         // LoomScreenHandler.this.dyeSlot.takeStack(1);
-        // if (!LoomScreenHandler.this.bannerSlot.hasStack() || !LoomScreenHandler.this.dyeSlot.hasStack()) {
-        //    LoomScreenHandler.this.selectedPattern.set(0);
+        // if (!LoomScreenHandler.this.bannerSlot.hasStack() ||
+        // !LoomScreenHandler.this.dyeSlot.hasStack()) {
+        // LoomScreenHandler.this.selectedPattern.set(0);
         // }
 
         // context.run((world, blockPos) -> {
-        //    long l = world.getTime();
-        //    if (LoomScreenHandler.this.lastTakeResultTime != l) {
-        //       world.playSound((PlayerEntity)null, blockPos, SoundEvents.UI_LOOM_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        //       LoomScreenHandler.this.lastTakeResultTime = l;
-        //    }
+        // long l = world.getTime();
+        // if (LoomScreenHandler.this.lastTakeResultTime != l) {
+        // world.playSound((PlayerEntity)null, blockPos,
+        // SoundEvents.UI_LOOM_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        // LoomScreenHandler.this.lastTakeResultTime = l;
+        // }
 
         // });
         return super.onTakeItem(player, stack);
-     }
-    });      
+      }
+    });
 
     this.context = context;
     int k;
@@ -112,9 +116,9 @@ public class MasonryOvenScreenHandler extends ScreenHandler { // SyncedGuiDescri
     for (k = 0; k < 9; ++k) {
       this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
     }
-    
+
     this.addProperties(propertyDelegate);
-    
+
     // super(MasonryOvenBlocks.SCREEN_HANDLER_TYPE, syncId, playerInventory,
     // getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context,
     // 4));
@@ -185,8 +189,8 @@ public class MasonryOvenScreenHandler extends ScreenHandler { // SyncedGuiDescri
   @Environment(EnvType.CLIENT)
   public void setInventoryChangeListener(Runnable inventoryChangeListener) {
     this.inventoryChangeListener = inventoryChangeListener;
-    
-    }
+
+  }
 
   @Override
   public boolean canUse(PlayerEntity player) {
@@ -201,27 +205,39 @@ public class MasonryOvenScreenHandler extends ScreenHandler { // SyncedGuiDescri
       ItemStack originalStack = slot.getStack();
       newStack = originalStack.copy();
       if (invSlot == MasonryOvenBlockEntity.SLOT_OUTPUT) {
-        if (!this.insertItem(originalStack, 3, 39, true)) {
+        if (!this.insertItem(originalStack, 7, 43, true)) {
           return ItemStack.EMPTY;
         }
-
         slot.onStackChanged(originalStack, newStack);
+
+      } else if (invSlot > 7) {
+        if (originalStack.getItem() instanceof DyeItem) {
+          if (!this.insertItem(originalStack, MasonryOvenBlockEntity.SLOT_DYE, MasonryOvenBlockEntity.SLOT_DYE + 1,
+              false)) {
+            return ItemStack.EMPTY;
+          }
+        } else if (AbstractFurnaceBlockEntity.canUseAsFuel(originalStack)) {
+          if (!this.insertItem(originalStack, MasonryOvenBlockEntity.SLOT_FUEL, MasonryOvenBlockEntity.SLOT_FUEL + 1,
+              false)) {
+            return ItemStack.EMPTY;
+          }
+        }
+
+      } else if (!this.insertItem(originalStack, 7, 43, false)) {
+        return ItemStack.EMPTY;
       }
-      // if (invSlot < this.inventory.size()) {
-      // if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(),
-      // true)) {
-      // return ItemStack.EMPTY;
-      // }
-      // } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false))
-      // {
-      // return ItemStack.EMPTY;
-      // }
 
       if (originalStack.isEmpty()) {
         slot.setStack(ItemStack.EMPTY);
       } else {
         slot.markDirty();
       }
+
+      if (originalStack.getCount() == newStack.getCount()) {
+        return ItemStack.EMPTY;
+      }
+
+      slot.onTakeItem(player, originalStack);
     }
 
     return newStack;
@@ -229,23 +245,23 @@ public class MasonryOvenScreenHandler extends ScreenHandler { // SyncedGuiDescri
 
   @Environment(EnvType.CLIENT)
   public int getCookProgress() {
-     int i = this.propertyDelegate.get(2);
-     int j = this.propertyDelegate.get(3);
-     return j != 0 && i != 0 ? i * 24 / j : 0;
+    int i = this.propertyDelegate.get(2);
+    int j = this.propertyDelegate.get(3);
+    return j != 0 && i != 0 ? i * 24 / j : 0;
   }
 
   @Environment(EnvType.CLIENT)
   public int getFuelProgress() {
-     int i = this.propertyDelegate.get(1);
-     if (i == 0) {
-        i = 200;
-     }
+    int i = this.propertyDelegate.get(1);
+    if (i == 0) {
+      i = 200;
+    }
 
-     return this.propertyDelegate.get(0) * 13 / i;
+    return this.propertyDelegate.get(0) * 13 / i;
   }
 
   @Environment(EnvType.CLIENT)
   public boolean isBurning() {
-     return this.propertyDelegate.get(0) > 0;
-  } 
+    return this.propertyDelegate.get(0) > 0;
+  }
 }
