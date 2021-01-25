@@ -4,12 +4,13 @@ import java.util.Iterator;
 
 import org.jetbrains.annotations.Nullable;
 
-import io.github.cottonmc.cotton.gui.PropertyDelegateHolder;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LoomBlock;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.FurnaceBlockEntity;
 import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -38,11 +39,11 @@ import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
-import net.sorskoot.colorfulmasonry.gui.MasonryOvenController;
+import net.sorskoot.colorfulmasonry.gui.MasonryOvenScreenHandler;
 import net.sorskoot.colorfulmasonry.registry.MasonryOvenBlocks;
 
 public class MasonryOvenBlockEntity extends BlockEntity
-        implements PropertyDelegateHolder, SidedInventory, NamedScreenHandlerFactory, RecipeUnlocker, RecipeInputProvider, Tickable {
+        implements /*PropertyDelegateHolder,*/ SidedInventory, NamedScreenHandlerFactory, RecipeUnlocker, RecipeInputProvider, Tickable {
 
     public static final int SLOT_FUEL = 5;
     public static final int SLOT_DYE = 0;
@@ -70,7 +71,7 @@ public class MasonryOvenBlockEntity extends BlockEntity
     private final Object2IntOpenHashMap<Identifier> recipesUsed;
     protected final RecipeType<MasonryOvenRecipe> recipeType;
 
-    public MasonryOvenBlockEntity() {
+    public MasonryOvenBlockEntity() {        
         super(MasonryOvenBlocks.MASONRY_OVEN_BLOCK_ENTITY);
         this.propertyDelegate = new PropertyDelegate() {
             public int get(int index) {
@@ -151,7 +152,8 @@ public class MasonryOvenBlockEntity extends BlockEntity
 
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new MasonryOvenController(syncId, inv, ScreenHandlerContext.create(world, pos));
+        return 
+            new MasonryOvenScreenHandler(syncId, inv, this, ScreenHandlerContext.create(world, pos), this.propertyDelegate);
     }
 
     @Override
@@ -420,10 +422,5 @@ public class MasonryOvenBlockEntity extends BlockEntity
             }
          }
          return true;
-    }
-
-    @Override
-    public PropertyDelegate getPropertyDelegate() {        
-        return propertyDelegate;
-    }
+    }   
 }

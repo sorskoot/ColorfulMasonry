@@ -10,9 +10,9 @@ import net.fabricmc.api.EnvType;
 @Environment(EnvType.CLIENT)
 public class ColorfulMasonryClient implements ClientModInitializer {
     @Override
-    public void onInitializeClient() {
-        
-      ScreenRegistry.register(MasonryOvenBlocks.SCREEN_HANDLER_TYPE, (gui, inventory, title) -> new MasonryOvenScreen(gui, inventory.player, title));
-    
+    public void onInitializeClient() {      
+      ScreenRegistry.register(MasonryOvenBlocks.SCREEN_HANDLER_TYPE, MasonryOvenScreen::new);          
     }
 }
+
+

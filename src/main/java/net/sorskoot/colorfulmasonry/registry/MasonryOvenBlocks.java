@@ -16,7 +16,7 @@ import net.sorskoot.colorfulmasonry.ColorfulMasonry;
 import net.sorskoot.colorfulmasonry.blocks.MasonryOvenBlock;
 import net.sorskoot.colorfulmasonry.blocks.MasonryOvenBlockEntity;
 import net.sorskoot.colorfulmasonry.blocks.MasonryOvenRecipe;
-import net.sorskoot.colorfulmasonry.gui.MasonryOvenController;
+import net.sorskoot.colorfulmasonry.gui.MasonryOvenScreenHandler;
 
 public class MasonryOvenBlocks {
     public static final String BLOCK_ID = "masonry_oven";
@@ -25,10 +25,6 @@ public class MasonryOvenBlocks {
     public static final BlockEntityType<MasonryOvenBlockEntity> MASONRY_OVEN_BLOCK_ENTITY = BlockEntityType.Builder
             .create(MasonryOvenBlockEntity::new, MASONRY_OVEN_BLOCK).build(null);
 
-    // public static final ScreenHandlerType<MasonryOvenScreenHandler>
-    // MASONRY_OVEN_SCREEN_HANDLER =
-    // ScreenHandlerRegistry.registerSimple(new Identifier(ColorfulMasonry.MOD_ID,
-    // BLOCK_ID), MasonryOvenScreenHandler::new);
     public static final RecipeType<MasonryOvenRecipe> MASONRY_OVEN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE,
             new Identifier(ColorfulMasonry.MOD_ID, BLOCK_ID), new RecipeType<MasonryOvenRecipe>() {
                 public String toString() {
@@ -36,13 +32,13 @@ public class MasonryOvenBlocks {
                 }
             });
 
-    public static final ScreenHandlerType<MasonryOvenController> SCREEN_HANDLER_TYPE;
+    public static final ScreenHandlerType<MasonryOvenScreenHandler> SCREEN_HANDLER_TYPE;
     public static final RecipeSerializer<MasonryOvenRecipe> MASONRY_OVEN_RECIPE_SERIALIZER = Registry
             .register(Registry.RECIPE_SERIALIZER, new Identifier(ColorfulMasonry.MOD_ID, BLOCK_ID), new MasonryOvenRecipe.Serializer());
     static {
 
         SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(new Identifier(ColorfulMasonry.MOD_ID, BLOCK_ID),
-                (syncId, inventory) -> new MasonryOvenController(syncId, inventory, ScreenHandlerContext.EMPTY));
+                MasonryOvenScreenHandler::new);
     }
 
     public static void registerBlocks() {
