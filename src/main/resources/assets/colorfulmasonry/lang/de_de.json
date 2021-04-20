@@ -1,0 +1,85 @@
+{
+  "block.colorfulmasonry.black_bricks": "Schwarze Ziegelsteine",
+  "block.colorfulmasonry.black_brick_slabs": "Schwarze Ziegelstufe",
+  "block.colorfulmasonry.black_brick_stairs": "Schwarze Ziegeltreppe",
+  "block.colorfulmasonry.black_brick_wall": "Schwarze Ziegelsteinmauer",
+
+  "block.colorfulmasonry.blue_bricks": "Blaue Ziegelsteine",
+  "block.colorfulmasonry.blue_brick_slabs": "Blauer Ziegelstufe",
+  "block.colorfulmasonry.blue_brick_stairs": "Blaue Ziegeltreppe",
+  "block.colorfulmasonry.blue_brick_wall": "Blaue Ziegelsteinmauer",
+
+  "block.colorfulmasonry.brown_bricks": "Braune Ziegelsteine",
+  "block.colorfulmasonry.brown_brick_slabs": "Braune Ziegelstufe",
+  "block.colorfulmasonry.brown_brick_stairs": "Braune Ziegeltreppe",
+  "block.colorfulmasonry.brown_brick_wall": "Braune Ziegelsteinmauer",
+
+  "block.colorfulmasonry.cyan_bricks": "Cyane Ziegelsteine",
+  "block.colorfulmasonry.cyan_brick_slabs": "Cyane Ziegelstufe",
+  "block.colorfulmasonry.cyan_brick_stairs": "Cyane Ziegeltreppe",
+  "block.colorfulmasonry.cyan_brick_wall": "Cyane Ziegelsteinmauer",
+
+  "block.colorfulmasonry.gray_bricks": "Graue Ziegelsteine",
+  "block.colorfulmasonry.gray_brick_slabs": "Graue Ziegelstufe",
+  "block.colorfulmasonry.gray_brick_stairs": "Graue Ziegeltreppe",
+  "block.colorfulmasonry.gray_brick_wall": "Graue Ziegelsteinmauer",
+
+  "block.colorfulmasonry.green_bricks": "Grüne Ziegelsteine",
+  "block.colorfulmasonry.green_brick_slabs": "Grüne Ziegelstufe",
+  "block.colorfulmasonry.green_brick_stairs": "Grüne Ziegeltreppe",
+  "block.colorfulmasonry.green_brick_wall": "Grüne Ziegelsteinmauer",
+
+  "block.colorfulmasonry.light_blue_bricks": "Hellblaue Ziegelsteine",
+  "block.colorfulmasonry.light_blue_brick_slabs": "Hellblaue Ziegelstufe",
+  "block.colorfulmasonry.light_blue_brick_stairs": "Hellblaue Ziegeltreppe",
+  "block.colorfulmasonry.light_blue_brick_wall": "Hellblaue Ziegelsteinmauer",
+
+  "block.colorfulmasonry.light_gray_bricks": "Hellgraue Ziegelsteine",
+  "block.colorfulmasonry.light_gray_brick_slabs": "Hellgraue Ziegelstufe",
+  "block.colorfulmasonry.light_gray_brick_stairs": "Hellgraue Ziegeltreppe",
+  "block.colorfulmasonry.light_gray_brick_wall": "Hellgraue Ziegelsteinmauer",
+
+  "block.colorfulmasonry.lime_bricks": "Lindgrüne Ziegelsteine",
+  "block.colorfulmasonry.lime_brick_slabs": "Lindgrüne Ziegelstufe",
+  "block.colorfulmasonry.lime_brick_stairs": "Lindgrüne Ziegeltreppe",
+  "block.colorfulmasonry.lime_brick_wall": "Lindgrüne Ziegelsteinmauer",
+
+  "block.colorfulmasonry.magenta_bricks": "Magenta Ziegelsteine",
+  "block.colorfulmasonry.magenta_brick_slabs": "Magenta Ziegelstufe",
+  "block.colorfulmasonry.magenta_brick_stairs": "Magenta Ziegeltreppe",
+  "block.colorfulmasonry.magenta_brick_wall": "Magenta Ziegelsteinmauer",
+
+  "block.colorfulmasonry.orange_bricks": "Orange Ziegelsteine",
+  "block.colorfulmasonry.orange_brick_slabs": "Orange Ziegelstufe",
+  "block.colorfulmasonry.orange_brick_stairs": "Orange Ziegeltreppe",
+  "block.colorfulmasonry.orange_brick_wall": "Orange Ziegelsteinmauer",
+
+  "block.colorfulmasonry.pink_bricks": "Pinke Ziegelsteine",
+  "block.colorfulmasonry.pink_brick_slabs": "Pinke Ziegelstufe",
+  "block.colorfulmasonry.pink_brick_stairs": "Pinke Ziegeltreppe",
+  "block.colorfulmasonry.pink_brick_wall": "Pinke Ziegelsteinmauer",
+  
+  "block.colorfulmasonry.purple_bricks": "Violette Ziegelsteine",
+  "block.colorfulmasonry.purple_brick_slabs": "Violette Ziegelstufe",
+  "block.colorfulmasonry.purple_brick_stairs": "Violette Ziegeltreppe",
+  "block.colorfulmasonry.purple_brick_wall": "Violette Ziegelsteinmauer",
+
+  "block.colorfulmasonry.red_bricks": "Rote Ziegelsteine",
+  "block.colorfulmasonry.red_brick_slabs": "Rote Ziegelstufe",
+  "block.colorfulmasonry.red_brick_stairs": "Rote Ziegeltreppe",
+  "block.colorfulmasonry.red_brick_wall": "Rote Ziegelsteinmauer",
+
+  "block.colorfulmasonry.white_bricks": "Weiße Ziegelsteine",
+  "block.colorfulmasonry.white_brick_slabs": "Weiße Ziegelstufe",
+  "block.colorfulmasonry.white_brick_stairs": "Weiße Ziegeltreppe",
+  "block.colorfulmasonry.white_brick_wall": "Weiße Ziegelsteinmauer",
+
+  "block.colorfulmasonry.yellow_bricks": "Gelbe Ziegelsteine",
+  "block.colorfulmasonry.yellow_brick_slabs": "Gelbe Ziegelstufe",
+  "block.colorfulmasonry.yellow_brick_stairs": "Gelbe Ziegeltreppe",
+  "block.colorfulmasonry.yellow_brick_wall": "Gelbe Ziegelsteinmauer",
+  
+  "itemGroup.tabcolor_masonry": "Colorful Masonry",
+  "block.colorfulmasonry.masonry_oven": "Mauerofen",
+  "block.colorfulmasonry.mansonry_oven_lit": "Mauerofen"
+}
